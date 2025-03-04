@@ -1,0 +1,41 @@
+plugins {
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'java'
+}
+
+group = 'com.example'
+version = '1.0.0'
+sourceCompatibility = '17' // Stelle sicher, dass du Java 17 oder höher verwendest
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starter für Web (REST API)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Boot Starter für JPA (Hibernate)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Spring Boot Starter für MySQL (Falls du MySQL benutzt)
+    implementation 'mysql:mysql-connector-java:8.0.33'
+
+    // Spring Boot Starter für PostgreSQL (Falls du PostgreSQL benutzt)
+    implementation 'org.postgresql:postgresql:42.5.4'
+
+    // Spring Boot Starter für Jackson JSON
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // Lombok (Reduziert Boilerplate-Code für Getter/Setter)
+    implementation 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Spring Boot Starter für Tests
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
